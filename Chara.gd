@@ -12,6 +12,8 @@ const SPEED = 200.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready():
+	randomize()
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -22,16 +24,22 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
+	#MOVEMENT
 	if direction:
 		velocity.x = direction * SPEED
 		$AnimationPlayer.play("RobotRun")
+		$AnimationPlayer.speed_scale = 2
+		#$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
 		if velocity.x > 0:
 			$Sprite2D.flip_h = false
 		elif velocity.x < 0:
 			$Sprite2D.flip_h = true
 	else:
+		#IDLE
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimationPlayer.play("RobotIdle")
+		$AnimationPlayer.speed_scale = 1
+		
 		
 	if Input.is_action_just_pressed("ui_increase_size"):
 		_increase_size()

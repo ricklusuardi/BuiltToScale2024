@@ -1,7 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://bawshwc6vy2s6"]
+[gd_scene load_steps=20 format=3 uid="uid://bawshwc6vy2s6"]
 
 [ext_resource type="Script" path="res://Chara.gd" id="1_rmnxf"]
 [ext_resource type="Texture2D" uid="uid://d4c2q8lhid7ln" path="res://sprite/Robot.png" id="2_dyb26"]
+[ext_resource type="AudioStream" uid="uid://b0rtgdyci47v8" path="res://sounds/MetalStep1.wav" id="3_dsjri"]
+[ext_resource type="AudioStream" uid="uid://brn75p02i3moa" path="res://sounds/MetalStep2.wav" id="4_baqkd"]
+[ext_resource type="AudioStream" uid="uid://e7f8002l7d3j" path="res://sounds/MetalStep11.wav" id="5_ydkpy"]
+[ext_resource type="AudioStream" uid="uid://cqi6hghxfos2j" path="res://sounds/MetalStep3.wav" id="6_6r0n2"]
+[ext_resource type="AudioStream" uid="uid://b1eiprq76g6v1" path="res://sounds/MetalStep4.wav" id="7_skvs3"]
+[ext_resource type="AudioStream" uid="uid://xavcf7xlqajh" path="res://sounds/MetalStep5.wav" id="8_frfai"]
+[ext_resource type="AudioStream" uid="uid://drdjbeqtkuli4" path="res://sounds/MetalStep6.wav" id="9_kkpio"]
+[ext_resource type="AudioStream" uid="uid://c8m3aelkbk4yh" path="res://sounds/MetalStep7.wav" id="10_ec3sl"]
+[ext_resource type="AudioStream" uid="uid://71a4d25v2mh" path="res://sounds/MetalStep8.wav" id="11_1fhii"]
+[ext_resource type="AudioStream" uid="uid://cxo830lr05tmr" path="res://sounds/MetalStep9.wav" id="12_8p4gj"]
+[ext_resource type="AudioStream" uid="uid://cxsej72tcoxq2" path="res://sounds/MetalStep10.wav" id="13_lss2v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l3m1"]
 size = Vector2(13, 26)
@@ -37,6 +48,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_x07e3"]
 resource_name = "RobotRun"
@@ -54,6 +77,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [5, 6, 7, 8, 9, 10, 11, 12]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.015625, 0.0281641),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u423"]
 _data = {
@@ -61,6 +96,31 @@ _data = {
 "RobotIdle": SubResource("Animation_5rts5"),
 "RobotRun": SubResource("Animation_x07e3")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sm042"]
+streams_count = 11
+stream_0/stream = ExtResource("3_dsjri")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_baqkd")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_6r0n2")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_skvs3")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_frfai")
+stream_4/weight = 1.0
+stream_5/stream = ExtResource("9_kkpio")
+stream_5/weight = 1.0
+stream_6/stream = ExtResource("10_ec3sl")
+stream_6/weight = 1.0
+stream_7/stream = ExtResource("11_1fhii")
+stream_7/weight = 1.0
+stream_8/stream = ExtResource("12_8p4gj")
+stream_8/weight = 1.0
+stream_9/stream = ExtResource("13_lss2v")
+stream_9/weight = 1.0
+stream_10/stream = ExtResource("5_ydkpy")
+stream_10/weight = 1.0
 
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_rmnxf")
@@ -80,3 +140,8 @@ shape = SubResource("RectangleShape2D_0l3m1")
 libraries = {
 "": SubResource("AnimationLibrary_3u423")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_sm042")
+pitch_scale = 1.5
+bus = &"Steps"
