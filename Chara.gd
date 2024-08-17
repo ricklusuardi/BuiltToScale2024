@@ -4,12 +4,26 @@ class_name Chara
 var SPEED = 200.0
 #const JUMP_VELOCITY = -400.0
 
+
+#SCALE
 @export var scaleChange : Vector2 #how much the size of the character increases/decreases
 @export var currentScaleStep : int = 0 # keeps track of how many times the character has been scaled up or down. 
 @export var maxScaleUp : int = 2 # max amount of times it can be scaled up
 @export var minScaleDown : int = - 2 # max amount of times it can be scaled down
 var is_in_wind = false
 @export var in_wind_speed = 50
+
+#MASS
+var baseMass = 1
+var currentMass = baseMass
+@export var massChange : float #how much the mass of the character increases/decreases
+
+#ANIMATION
+var animRunMultiplier = 3 #how much quicker the animation should be when running
+var animIdleMultiplier = 1
+var currentAnimScale = 1
+var animScaleMultiplier = 1.5 #how much quicker/slower the animations should be when sizes change
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -33,7 +47,7 @@ func _physics_process(delta):
 	if direction:
 		velocity.x = direction * SPEED
 		$AnimationPlayer.play("RobotRun")
-		$AnimationPlayer.speed_scale = 2
+		$AnimationPlayer.speed_scale =  animRunMultiplier * currentAnimScale
 		#$AudioStreamPlayer.pitch_scale = randf_range(0.9, 1.1)
 		if velocity.x > 0:
 			$Sprite2D.flip_h = false
@@ -43,7 +57,7 @@ func _physics_process(delta):
 		#IDLE
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimationPlayer.play("RobotIdle")
-		$AnimationPlayer.speed_scale = 1
+		$AnimationPlayer.speed_scale = animIdleMultiplier * currentAnimScale
 		
 		
 	if Input.is_action_just_pressed("ui_increase_size"):
@@ -56,15 +70,20 @@ func _physics_process(delta):
 func _increase_size():
 	if (currentScaleStep < maxScaleUp):
 		scale *= scaleChange
+		currentMass *= massChange
 		currentScaleStep += 1
+		currentAnimScale /= animScaleMultiplier #anim is slower when char is bigger
 
 func _decrease_size():
 	if (currentScaleStep > minScaleDown):
 		scale /= scaleChange
+		currentMass /= massChange
 		currentScaleStep -= 1
+		currentAnimScale *= animScaleMultiplier #anim is faster when char is smaller
 
 func in_wind():
 	is_in_wind = true
 
 func not_in_wind():
 	is_in_wind =  false
+		
