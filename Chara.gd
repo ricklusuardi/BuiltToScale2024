@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
 #const JUMP_VELOCITY = -400.0
 
 @export var scaleChange : Vector2 #how much the size of the character increases/decreases
@@ -24,8 +24,14 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		$AnimationPlayer.play("RobotRun")
+		if velocity.x > 0:
+			$Sprite2D.flip_h = false
+		elif velocity.x < 0:
+			$Sprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimationPlayer.play("RobotIdle")
 		
 	if Input.is_action_just_pressed("ui_increase_size"):
 		_increase_size()
