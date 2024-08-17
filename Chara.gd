@@ -1,14 +1,15 @@
 extends CharacterBody2D
+class_name Chara
 
-
-const SPEED = 200.0
+var SPEED = 200.0
 #const JUMP_VELOCITY = -400.0
 
 @export var scaleChange : Vector2 #how much the size of the character increases/decreases
 @export var currentScaleStep : int = 0 # keeps track of how many times the character has been scaled up or down. 
 @export var maxScaleUp : int = 2 # max amount of times it can be scaled up
 @export var minScaleDown : int = - 2 # max amount of times it can be scaled down
-
+var is_in_wind = false
+@export var in_wind_speed = 50
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -16,6 +17,10 @@ func _ready():
 	randomize()
 
 func _physics_process(delta):
+	if is_in_wind:
+		SPEED = in_wind_speed 
+	else :
+		SPEED = 200.0
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -57,3 +62,9 @@ func _decrease_size():
 	if (currentScaleStep > minScaleDown):
 		scale /= scaleChange
 		currentScaleStep -= 1
+
+func in_wind():
+	is_in_wind = true
+
+func not_in_wind():
+	is_in_wind =  false
