@@ -2,9 +2,13 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+#const JUMP_VELOCITY = -400.0
 
-@export var scale_change :Vector2 
+@export var scaleChange : Vector2 #how much the size of the character increases/decreases
+@export var currentScaleStep : int = 0 # keeps track of how many times the character has been scaled up or down. 
+@export var maxScaleUp : int = 2 # max amount of times it can be scaled up
+@export var minScaleDown : int = - 2 # max amount of times it can be scaled down
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -23,15 +27,19 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if Input.is_action_just_pressed("ui_increase_size"):
 		_increase_size()
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if Input.is_action_just_pressed("ui_decrease_size"):
 		_decrease_size()
 
 	move_and_slide()
 
 func _increase_size():
-	scale += scale_change
+	if (currentScaleStep < maxScaleUp):
+		scale *= scaleChange
+		currentScaleStep += 1
 
 func _decrease_size():
-	scale -= scale_change
+	if (currentScaleStep > minScaleDown):
+		scale /= scaleChange
+		currentScaleStep -= 1
