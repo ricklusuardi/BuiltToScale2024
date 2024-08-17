@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bawshwc6vy2s6"]
+[gd_scene load_steps=22 format=3 uid="uid://bawshwc6vy2s6"]
 
 [ext_resource type="Script" path="res://Chara.gd" id="1_rmnxf"]
 [ext_resource type="Texture2D" uid="uid://d4c2q8lhid7ln" path="res://sprite/Robot.png" id="2_dyb26"]
@@ -13,6 +13,8 @@
 [ext_resource type="AudioStream" uid="uid://71a4d25v2mh" path="res://sounds/MetalStep8.wav" id="11_1fhii"]
 [ext_resource type="AudioStream" uid="uid://cxo830lr05tmr" path="res://sounds/MetalStep9.wav" id="12_8p4gj"]
 [ext_resource type="AudioStream" uid="uid://cxsej72tcoxq2" path="res://sounds/MetalStep10.wav" id="13_lss2v"]
+[ext_resource type="AudioStream" uid="uid://bli10i6euwb8c" path="res://sounds/SizeChange4.wav" id="14_5r8lg"]
+[ext_resource type="AudioStream" uid="uid://cu7rupkuwbk6k" path="res://sounds/SizeChangeDown.wav" id="15_j6un0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l3m1"]
 size = Vector2(13, 26)
@@ -34,7 +36,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("AudioStreamPlayerSteps:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +82,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("AudioStreamPlayerSteps:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -142,7 +144,13 @@ libraries = {
 "": SubResource("AnimationLibrary_3u423")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayerSteps" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_sm042")
 pitch_scale = 1.5
 bus = &"Steps"
+
+[node name="AudioStreamPlayerSizeUp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5r8lg")
+
+[node name="AudioStreamPlayerSizeDown" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_j6un0")

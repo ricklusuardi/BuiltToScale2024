@@ -73,6 +73,7 @@ func _increase_size():
 		currentMass *= massChange
 		currentScaleStep += 1
 		currentAnimScale /= animScaleMultiplier #anim is slower when char is bigger
+		$AudioStreamPlayerSizeUp.play()
 
 func _decrease_size():
 	if (currentScaleStep > minScaleDown):
@@ -80,6 +81,7 @@ func _decrease_size():
 		currentMass /= massChange
 		currentScaleStep -= 1
 		currentAnimScale *= animScaleMultiplier #anim is faster when char is smaller
+		$AudioStreamPlayerSizeDown.play()
 
 func in_wind():
 	is_in_wind = true
