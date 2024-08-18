@@ -16,17 +16,16 @@ size = Vector2(179, 263)
 
 [node name="Character" parent="." instance=ExtResource("1_gcqke")]
 unique_name_in_owner = true
-position = Vector2(106, 217)
+position = Vector2(143, 150)
+collision_mask = 3
 in_wind_speed = 200
 massChange = 4.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-visible = false
 position = Vector2(-526, 574)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-visible = false
-position = Vector2(-70, -325)
+position = Vector2(319, -326)
 shape = SubResource("RectangleShape2D_4o578")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -46,7 +45,7 @@ position = Vector2(230, -65)
 shape = SubResource("RectangleShape2D_l8hmt")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(139, 221)
+position = Vector2(141, 221)
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
