@@ -6,6 +6,10 @@ var SPEED = 200.0
 var is_in_wind = false
 var wind_direction = Vector2.ZERO
 
+#HEALTH
+@export var maxHealth : int
+var currentHealth = maxHealth
+
 # SCALE
 @export var scaleChange: Vector2  # how much the size of the character increases/decreases
 @export var currentScaleStep: int = 0  # keeps track of how many times the character has been scaled up or down
@@ -139,3 +143,9 @@ func in_wind(wind_vector: Vector2):
 func not_in_wind():
 	is_in_wind = false
 	wind_direction = Vector2.ZERO
+
+func _get_damaged(damage : int):
+	
+	currentHealth -= damage
+	if (currentHealth <= 0):
+		print("YOU DIED!")
