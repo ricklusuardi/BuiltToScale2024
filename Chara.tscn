@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bawshwc6vy2s6"]
+[gd_scene load_steps=24 format=3 uid="uid://bawshwc6vy2s6"]
 
 [ext_resource type="Script" path="res://Chara.gd" id="1_rmnxf"]
 [ext_resource type="Texture2D" uid="uid://d4c2q8lhid7ln" path="res://sprite/Robot.png" id="2_dyb26"]
+[ext_resource type="PackedScene" uid="uid://cjq18o2iqbws3" path="res://SizeChangeEffect.tscn" id="2_ybr7v"]
 [ext_resource type="AudioStream" uid="uid://b0rtgdyci47v8" path="res://sounds/MetalStep1.wav" id="3_dsjri"]
 [ext_resource type="AudioStream" uid="uid://brn75p02i3moa" path="res://sounds/MetalStep2.wav" id="4_baqkd"]
 [ext_resource type="AudioStream" uid="uid://e7f8002l7d3j" path="res://sounds/MetalStep11.wav" id="5_ydkpy"]
@@ -92,11 +93,17 @@ tracks/1/keys = {
 "values": [true, true]
 }
 
+[sub_resource type="Animation" id="Animation_ssipd"]
+resource_name = "SizeUp"
+length = 0.36
+step = 0.02
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3u423"]
 _data = {
 "RESET": SubResource("Animation_dgvju"),
 "RobotIdle": SubResource("Animation_5rts5"),
-"RobotRun": SubResource("Animation_x07e3")
+"RobotRun": SubResource("Animation_x07e3"),
+"SizeUp": SubResource("Animation_ssipd")
 }
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sm042"]
@@ -128,6 +135,7 @@ stream_10/weight = 1.0
 script = ExtResource("1_rmnxf")
 scaleChange = Vector2(2, 2)
 massChange = 1.3
+particleType = ExtResource("2_ybr7v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

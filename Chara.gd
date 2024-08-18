@@ -23,6 +23,12 @@ var animIdleMultiplier = 1
 var currentAnimScale = 1
 var animScaleMultiplier = 1.5  # how much quicker/slower the animations should be when sizes change
 
+#PARTICLES
+var effectBaseValue = 0.5 #base scale of the particle
+var effectSizeMultiplier = 2 #how much the part changes in size when the char changes
+@export var particleType : PackedScene 
+ 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -71,24 +77,43 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _increase_size():
-	if currentScaleStep < maxScaleUp:
-		scale *= scaleChange
+	if (currentScaleStep < maxScaleUp):
+		
 		currentMass *= massChange
+		
+		#change size
+		scale *= scaleChange
 		currentScaleStep += 1
-		currentAnimScale /= animScaleMultiplier  # anim is slower when char is bigger
+		currentAnimScale /= animScaleMultiplier #anim is slower when char is bigger
+		
+		#play audio
 		$AudioStreamPlayerSizeDown.pitch_scale -= 0.2
 		$AudioStreamPlayerSizeUp.pitch_scale -= 0.2
 		$AudioStreamPlayerSizeUp.play()
+		
+		#play animation
+		var effect = particleType.instantiate()
+		add_child(effect)
+		
 
 func _decrease_size():
-	if currentScaleStep > minScaleDown:
-		scale /= scaleChange
+	if (currentScaleStep > minScaleDown):
 		currentMass /= massChange
+		
+		#change size
+		scale /= scaleChange
 		currentScaleStep -= 1
-		currentAnimScale *= animScaleMultiplier  # anim is faster when char is smaller
+		currentAnimScale *= animScaleMultiplier #anim is faster when char is smaller
+		
+		#play audio
 		$AudioStreamPlayerSizeDown.pitch_scale += 0.2
 		$AudioStreamPlayerSizeUp.pitch_scale += 0.2
 		$AudioStreamPlayerSizeDown.play()
+		
+		#play animation
+		var effect = particleType.instantiate()
+		add_child(effect)
+		
 
 # Adjust the speed based on the wind direction and character movement
 func apply_wind_effect(delta: float):

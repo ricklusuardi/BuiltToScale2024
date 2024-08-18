@@ -4,4 +4,5 @@ robot tileset (0x72_16x16RobotTileset.v1.png): https://0x72.itch.io/16x16-robot-
 metal steps (397285__revolverssmoke__step-in-metall-1.wav): https://freesound.org/people/revolverssmoke/sounds/397285/
 metal steps (final) (696374__sanderboah__walking-on-metal.wav): https://freesound.org/people/Sanderboah/sounds/696374/
 bouncing sound (478338__joao_janz__bouncing-power-up-1_1.wav): https://freesound.org/people/Joao_Janz/sounds/478338/
-size increase sound (\Projects\Audio\588251__romeo_kaleikau__power-up-regeneration-sfx.aup3-shm):https://freesound.org/people/Romeo_Kaleikau/sounds/588251/
+size increase sound (588251__romeo_kaleikau__power-up-regeneration-sfx.aup3-shm):https://freesound.org/people/Romeo_Kaleikau/sounds/588251/
+particle effects: https://ragnapixel.itch.io/particle-fx
