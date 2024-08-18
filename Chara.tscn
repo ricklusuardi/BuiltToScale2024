@@ -154,3 +154,4 @@ stream = ExtResource("14_5r8lg")
 
 [node name="AudioStreamPlayerSizeDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_j6un0")
+bus = &"SizeChange"
