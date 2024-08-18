@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://Level.gd" id="1_2r1fr"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
 [ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="2_7ebu2"]
-[ext_resource type="PackedScene" uid="uid://ddv7eoyf8pegk" path="res://GameCamera.tscn" id="3_knnb1"]
 [ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="3_pfv88"]
+[ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="6_fvkil"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o578"]
 size = Vector2(1457, 20)
@@ -32,8 +32,6 @@ position = Vector2(-526, 574)
 position = Vector2(319, -326)
 shape = SubResource("RectangleShape2D_4o578")
 
-[node name="Camera2D" parent="." instance=ExtResource("3_knnb1")]
-
 [node name="SpaceBackground" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(304, 200)
@@ -54,3 +52,23 @@ gravity_scale = 0.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(60, 27)
 shape = SubResource("RectangleShape2D_owrha")
+
+[node name="Icon" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(200, 112)
+scale = Vector2(0.4375, 0.5)
+texture = ExtResource("6_fvkil")
+
+[node name="Icon" type="Sprite2D" parent="Icon"]
+z_index = -1
+position = Vector2(-270, 40)
+scale = Vector2(0.790179, 1.375)
+texture = ExtResource("6_fvkil")
+
+[node name="Icon" type="Sprite2D" parent="Icon/Icon"]
+z_index = -1
+position = Vector2(-491.39, 29.0909)
+scale = Vector2(3.93261, 0.590909)
+texture = ExtResource("6_fvkil")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayerGroup"]]

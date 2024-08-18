@@ -5,28 +5,44 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2phj"]
 bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 3
+border_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control"]
 process_mode = 2
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -36.0
+offset_right = -80.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4sg4u")
 
 [node name="ItemList" type="ItemList" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = -44.0
-offset_top = -23.0
-offset_right = 44.0
-offset_bottom = 33.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -16.0
+offset_right = 176.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_ff3pk")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 19
 theme_override_styles/panel = SubResource("StyleBoxFlat_j2phj")
 allow_search = false
 item_count = 3
@@ -34,4 +50,10 @@ item_0/text = "Resume"
 item_1/text = "Main Menu"
 item_2/text = "Quit Game"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="item_clicked" from="ItemList" to="." method="_on_item_list_item_clicked"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

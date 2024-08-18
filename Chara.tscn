@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bawshwc6vy2s6"]
+[gd_scene load_steps=25 format=3 uid="uid://bawshwc6vy2s6"]
 
 [ext_resource type="Script" path="res://Chara.gd" id="1_rmnxf"]
 [ext_resource type="Texture2D" uid="uid://d4c2q8lhid7ln" path="res://sprite/Robot.png" id="2_dyb26"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://cxsej72tcoxq2" path="res://sounds/MetalStep10.wav" id="13_lss2v"]
 [ext_resource type="AudioStream" uid="uid://bli10i6euwb8c" path="res://sounds/SizeChange4.wav" id="14_5r8lg"]
 [ext_resource type="AudioStream" uid="uid://cu7rupkuwbk6k" path="res://sounds/SizeChangeDown.wav" id="15_j6un0"]
+[ext_resource type="PackedScene" uid="uid://ddv7eoyf8pegk" path="res://GameCamera.tscn" id="17_g7bcs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l3m1"]
 size = Vector2(13, 26)
@@ -146,7 +147,6 @@ texture = ExtResource("2_dyb26")
 hframes = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_0l3m1")
 
@@ -166,3 +166,7 @@ stream = ExtResource("14_5r8lg")
 [node name="AudioStreamPlayerSizeDown" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_j6un0")
 bus = &"SizeChange"
+
+[node name="Camera2D" parent="." instance=ExtResource("17_g7bcs")]
+process_mode = 1
+position = Vector2(0, -56)

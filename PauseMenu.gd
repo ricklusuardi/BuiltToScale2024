@@ -13,12 +13,17 @@ func _process(delta):
 		queue_free()
 
 
-func _on_item_list_item_selected(index):
+func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if (index == 0):
-		get_tree().paused = false
-		queue_free()
+		$Timer.start()
 	if (index == 1):
 		get_tree().paused = false
 		get_tree().change_scene_to_file("res://MainMenu.tscn")
 	if (index == 2):
 		get_tree().quit() 
+
+
+
+func _on_timer_timeout():
+	get_tree().paused = false
+	queue_free()

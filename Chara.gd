@@ -32,7 +32,10 @@ var animScaleMultiplier = 1.5  # how much quicker/slower the animations should b
 var effectBaseValue = 0.5 #base scale of the particle
 var effectSizeMultiplier = 2 #how much the part changes in size when the char changes
 @export var particleType : PackedScene 
- 
+
+#CAMERA
+var camOffsetLvl1 = 35 #keeps the camera centered when changing size
+var camOffsetLvl2 = 19 #keeps the camera centered when changing size
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -83,6 +86,9 @@ func _physics_process(delta):
 	#Process movement
 	move_and_slide()
 
+
+
+
 func _increase_size():
 	if (currentScaleStep < maxScaleUp):
 		
@@ -102,9 +108,22 @@ func _increase_size():
 		var effect = particleType.instantiate()
 		add_child(effect)
 		
+		#adjust camera
+		if (currentScaleStep == 1):
+			$Camera2D.position.y += camOffsetLvl1
+		elif (currentScaleStep == 2):
+			$Camera2D.position.y += camOffsetLvl2
+		
 
 func _decrease_size():
 	if (currentScaleStep > minScaleDown):
+		
+		#adjust camera
+		if (currentScaleStep == 1):
+			$Camera2D.position.y -= camOffsetLvl1
+		elif (currentScaleStep == 2):
+			$Camera2D.position.y -= camOffsetLvl2
+		
 		currentMass /= massChange
 		
 		#change size
