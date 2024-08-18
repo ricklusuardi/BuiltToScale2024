@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://lmvercdho44y"]
+[gd_scene load_steps=7 format=3 uid="uid://lmvercdho44y"]
 
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
 [ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="2_7ebu2"]
@@ -8,20 +8,24 @@
 size = Vector2(1457, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8hmt"]
-size = Vector2(122, 94)
+size = Vector2(179, 263)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owrha"]
 
 [node name="World" type="Node2D"]
 
 [node name="Character" parent="." instance=ExtResource("1_gcqke")]
 unique_name_in_owner = true
-position = Vector2(272, 216)
+position = Vector2(106, 217)
 in_wind_speed = 200
-massChange = 2.0
+massChange = 4.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(327, 581)
+visible = false
+position = Vector2(-526, 574)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
 position = Vector2(-70, -325)
 shape = SubResource("RectangleShape2D_4o578")
 
@@ -38,5 +42,12 @@ texture = ExtResource("2_7ebu2")
 position = Vector2(383, 190)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea"]
-position = Vector2(6, 7)
+position = Vector2(230, -65)
 shape = SubResource("RectangleShape2D_l8hmt")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(139, 221)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_owrha")
