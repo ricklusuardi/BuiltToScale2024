@@ -6,6 +6,7 @@ var SPEED = 200.0
 var is_in_wind = false
 var wind_direction = Vector2.ZERO
 
+
 #HEALTH
 @export var maxHealth : int
 var currentHealth = maxHealth
@@ -36,9 +37,11 @@ var effectSizeMultiplier = 2 #how much the part changes in size when the char ch
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
 func _ready():
 	randomize()
-
+		
+		
 func _physics_process(delta):
 	if is_in_wind:
 		apply_wind_effect(delta)
@@ -49,10 +52,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+
+	# MOVEMENT
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
-	# MOVEMENT
 	if direction:
 		velocity.x = direction * SPEED
 		$AnimationPlayer.play("RobotRun")
@@ -75,8 +79,8 @@ func _physics_process(delta):
 		_increase_size()
 	if Input.is_action_just_pressed("ui_decrease_size"):
 		_decrease_size()
-
-	# Process movement
+	
+	#Process movement
 	move_and_slide()
 
 func _increase_size():
@@ -142,6 +146,7 @@ func in_wind(wind_vector: Vector2):
 func not_in_wind():
 	is_in_wind = false
 	wind_direction = Vector2.ZERO
+
 
 func _get_damaged(damage : int):
 	

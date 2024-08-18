@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bc04rxcgu7hpk"]
+
+[ext_resource type="Script" path="res://PauseMenu.gd" id="1_4sg4u"]
+[ext_resource type="FontFile" uid="uid://bsxcw5op6n14l" path="res://fonts/joystix monospace.otf" id="2_ff3pk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2phj"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4sg4u")
+
+[node name="ItemList" type="ItemList" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -44.0
+offset_top = -23.0
+offset_right = 44.0
+offset_bottom = 33.0
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_ff3pk")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/panel = SubResource("StyleBoxFlat_j2phj")
+allow_search = false
+item_count = 3
+item_0/text = "Resume"
+item_1/text = "Main Menu"
+item_2/text = "Quit Game"
+
+[connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]

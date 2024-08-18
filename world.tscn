@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://lmvercdho44y"]
+[gd_scene load_steps=9 format=3 uid="uid://lmvercdho44y"]
 
+[ext_resource type="Script" path="res://Level.gd" id="1_2r1fr"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
 [ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="2_7ebu2"]
+[ext_resource type="PackedScene" uid="uid://ddv7eoyf8pegk" path="res://GameCamera.tscn" id="3_knnb1"]
 [ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="3_pfv88"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o578"]
@@ -11,12 +13,14 @@ size = Vector2(1457, 20)
 size = Vector2(179, 263)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owrha"]
+size = Vector2(210, 20)
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_2r1fr")
 
 [node name="Character" parent="." instance=ExtResource("1_gcqke")]
 unique_name_in_owner = true
-position = Vector2(143, 150)
+position = Vector2(120, 216)
 collision_mask = 3
 in_wind_speed = 200
 massChange = 4.0
@@ -28,14 +32,13 @@ position = Vector2(-526, 574)
 position = Vector2(319, -326)
 shape = SubResource("RectangleShape2D_4o578")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 160)
-zoom = Vector2(3, 3)
+[node name="Camera2D" parent="." instance=ExtResource("3_knnb1")]
 
 [node name="SpaceBackground" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(304, 200)
 texture = ExtResource("2_7ebu2")
+metadata/_edit_lock_ = true
 
 [node name="WindArea" parent="." instance=ExtResource("3_pfv88")]
 position = Vector2(383, 190)
@@ -49,4 +52,5 @@ position = Vector2(141, 221)
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(60, 27)
 shape = SubResource("RectangleShape2D_owrha")
