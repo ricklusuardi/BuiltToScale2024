@@ -118,3 +118,4 @@ scale = Vector2(4.8, 0.05)
 shape = SubResource("RectangleShape2D_miet3")
 
 [connection signal="body_entered" from="MovingPlatform/PathFollow2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MovingPlatform/PathFollow2D/Area2D" to="." method="_on_area_2d_body_exited"]

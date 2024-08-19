@@ -18,6 +18,8 @@ var currentHealth = maxHealth
 @export var maxScaleUp: int = 2  # max amount of times it can be scaled up
 @export var minScaleDown: int = -2  # max amount of times it can be scaled down
 
+signal scale_changed
+
 # MASS
 var baseMass = 1
 var currentMass = baseMass
@@ -35,8 +37,8 @@ var effectSizeMultiplier = 2 #how much the part changes in size when the char ch
 @export var particleType : PackedScene 
 
 #CAMERA
-var camOffsetLvl1 = 35 #keeps the camera centered when changing size
-var camOffsetLvl2 = 19 #keeps the camera centered when changing size
+var camOffsetLvl1 = 30 #keeps the camera centered when changing size
+var camOffsetLvl2 = 13 #keeps the camera centered when changing size
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -106,13 +108,15 @@ func _increase_size():
 		
 		#play animation
 		var effect = particleType.instantiate()
-		add_child(effect)
+		$Sprite2D.add_child(effect)
 		
 		#adjust camera
 		if (currentScaleStep == 1):
 			$Camera2D.position.y += camOffsetLvl1
 		elif (currentScaleStep == 2):
 			$Camera2D.position.y += camOffsetLvl2
+		
+		emit_signal("scale_changed")
 		
 
 func _decrease_size():
@@ -138,7 +142,9 @@ func _decrease_size():
 		
 		#play animation
 		var effect = particleType.instantiate()
-		add_child(effect)
+		$Sprite2D.add_child(effect)
+		
+		emit_signal("scale_changed")
 		
 #endregion
 
