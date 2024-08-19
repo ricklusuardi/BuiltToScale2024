@@ -29,7 +29,6 @@ shape = SubResource("RectangleShape2D_0gyp6")
 [node name="Node2D" parent="." instance=ExtResource("3_huafg")]
 position = Vector2(126, 145)
 collision_layer = 2
-collision_mask = 1
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 position = Vector2(-5, 179)

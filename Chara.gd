@@ -62,8 +62,9 @@ func _physics_process(delta):
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
-		$AnimationPlayer.play("RobotRun")
-		$AnimationPlayer.speed_scale = animRunMultiplier * currentAnimScale
+		if is_on_floor():
+			$AnimationPlayer.play("RobotRun")
+			$AnimationPlayer.speed_scale = animRunMultiplier * currentAnimScale
 		if velocity.x > 0:
 			$Sprite2D.flip_h = false
 		elif velocity.x < 0:
