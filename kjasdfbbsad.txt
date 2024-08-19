@@ -6,3 +6,6 @@ metal steps (final) (696374__sanderboah__walking-on-metal.wav): https://freesoun
 bouncing sound (478338__joao_janz__bouncing-power-up-1_1.wav): https://freesound.org/people/Joao_Janz/sounds/478338/
 size increase sound (588251__romeo_kaleikau__power-up-regeneration-sfx.aup3-shm):https://freesound.org/people/Romeo_Kaleikau/sounds/588251/
 particle effects: https://ragnapixel.itch.io/particle-fx
+font (joystix monospace): https://www.1001fonts.com/joystix-font.html 
+space runner assets: https://mattwalkden.itch.io/free-space-runner-pack
+sci fi lab tileset: https://foozlecc.itch.io/sci-fi-lab-tileset-decor-traps

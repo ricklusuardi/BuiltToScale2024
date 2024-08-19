@@ -23,7 +23,6 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 		get_tree().quit() 
 
 
-
 func _on_timer_timeout():
 	get_tree().paused = false
 	queue_free()
