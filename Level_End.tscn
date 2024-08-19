@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ibm86xb3p6nq"]
+
+[ext_resource type="Script" path="res://Level_End.gd" id="1_g1ggk"]
+[ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="2_cyl41"]
+[ext_resource type="PackedScene" uid="uid://dgk0yj24ju0pi" path="res://WinScreen.tscn" id="2_e7jdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpq22"]
+size = Vector2(24, 283)
+
+[node name="LevelEnd" type="Area2D"]
+script = ExtResource("1_g1ggk")
+win_screen = ExtResource("2_e7jdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -131.5)
+shape = SubResource("RectangleShape2D_rpq22")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(3, 7.5)
+scale = Vector2(0.242188, 2.11328)
+texture = ExtResource("2_cyl41")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
