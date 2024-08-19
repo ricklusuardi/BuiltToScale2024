@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://lmvercdho44y"]
+[gd_scene load_steps=12 format=3 uid="uid://lmvercdho44y"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_2r1fr"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cu2kwhktfodkh" path="res://check_point.tscn" id="3_ei0d6"]
 [ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="3_pfv88"]
 [ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="6_fvkil"]
+[ext_resource type="PackedScene" uid="uid://ibm86xb3p6nq" path="res://Level_End.tscn" id="8_vcxw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o578"]
 size = Vector2(1457, 20)
@@ -90,4 +91,10 @@ texture = ExtResource("6_fvkil")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayerGroup"]]
 
+[node name="LevelEnd" parent="." instance=ExtResource("8_vcxw5")]
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0"]
+position = Vector2(-333, 122)
+
 [editable path="Spikes"]
+[editable path="LevelEnd"]
