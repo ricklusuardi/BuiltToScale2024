@@ -1,5 +1,4 @@
 extends Node
-class_name Level
 
 @export var levels: Array[PackedScene] = []
 @export var main_menu : PackedScene
