@@ -5,6 +5,7 @@ var SPEED = 200.0
 @export var in_wind_speed = 50
 var is_in_wind = false
 var wind_direction = Vector2.ZERO
+var respawn_point: Vector2
 
 
 #HEALTH
@@ -43,8 +44,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	randomize()
-		
-		
+
 func _physics_process(delta):
 	if is_in_wind:
 		apply_wind_effect(delta)
@@ -87,8 +87,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-
-
+#region SIZE
 func _increase_size():
 	if (currentScaleStep < maxScaleUp):
 		
@@ -140,7 +139,9 @@ func _decrease_size():
 		var effect = particleType.instantiate()
 		add_child(effect)
 		
+#endregion
 
+#region WIND
 # Adjust the speed based on the wind direction and character movement
 func apply_wind_effect(delta: float):
 	var direction = Input.get_axis("ui_left", "ui_right")
@@ -166,9 +167,14 @@ func not_in_wind():
 	is_in_wind = false
 	wind_direction = Vector2.ZERO
 
+#endregion
 
 func _get_damaged(damage : int):
 	
 	currentHealth -= damage
 	if (currentHealth <= 0):
 		print("YOU DIED!")
+		position =respawn_point
+		
+func set_respawn_point(point : Vector2):
+	respawn_point = point

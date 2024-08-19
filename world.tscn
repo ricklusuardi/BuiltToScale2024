@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://lmvercdho44y"]
+[gd_scene load_steps=11 format=3 uid="uid://lmvercdho44y"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_2r1fr"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
 [ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="2_7ebu2"]
+[ext_resource type="PackedScene" uid="uid://p8ee8bjvhx4d" path="res://spikes.tscn" id="2_y1hf2"]
+[ext_resource type="PackedScene" uid="uid://cu2kwhktfodkh" path="res://check_point.tscn" id="3_ei0d6"]
 [ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="3_pfv88"]
 [ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="6_fvkil"]
 
@@ -18,9 +20,24 @@ size = Vector2(210, 20)
 [node name="World" type="Node2D"]
 script = ExtResource("1_2r1fr")
 
+[node name="Spikes" parent="." instance=ExtResource("2_y1hf2")]
+position = Vector2(120, 216)
+
+[node name="CollisionPolygon2D" parent="Spikes" index="0"]
+position = Vector2(120, 17)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Spikes"]
+position = Vector2(48, 18)
+polygon = PackedVector2Array(-6, 0, 0, -10, 6, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spikes/CollisionPolygon2D2"]
+
+[node name="CheckPoint" parent="Spikes" instance=ExtResource("3_ei0d6")]
+position = Vector2(-73, -12)
+
 [node name="Character" parent="." instance=ExtResource("1_gcqke")]
 unique_name_in_owner = true
-position = Vector2(120, 216)
+position = Vector2(120, 221)
 collision_mask = 3
 in_wind_speed = 200
 massChange = 4.0
@@ -72,3 +89,5 @@ scale = Vector2(3.93261, 0.590909)
 texture = ExtResource("6_fvkil")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayerGroup"]]
+
+[editable path="Spikes"]
