@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bj4eqmbqr5u00"]
+[gd_scene load_steps=4 format=3 uid="uid://bj4eqmbqr5u00"]
 
 [ext_resource type="Texture2D" uid="uid://clbx2fb4qef6q" path="res://sprite/science lab/level_tileset.png" id="1_40w1y"]
-[ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="2_doweo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqoe3"]
 texture = ExtResource("1_40w1y")
@@ -412,7 +411,3 @@ sources/1 = SubResource("TileSetAtlasSource_dqoe3")
 scale = Vector2(1.00155, 1.17016)
 tile_set = SubResource("TileSet_g43ut")
 format = 2
-layer_0/tile_data = PackedInt32Array(196609, 327681, 0, 196610, 393217, 0, 196611, 393217, 0, 196612, 393217, 0, 196613, 393217, 0, 196614, 393217, 0, 196615, 393217, 0, 196616, 393217, 0, 196617, 393217, 0, 196618, 393217, 0, 196619, 393217, 0, 196620, 458753, 0)
-
-[node name="Node2D" parent="." instance=ExtResource("2_doweo")]
-position = Vector2(186.71, 48.7113)

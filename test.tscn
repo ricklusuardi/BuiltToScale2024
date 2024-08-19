@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwgdhp58ln1vv"]
+
+[ext_resource type="PackedScene" uid="uid://blg5406nu6s02" path="res://level_ingredients.tscn" id="1_fbscg"]
+[ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="2_1txa8"]
+[ext_resource type="PackedScene" uid="uid://bj4eqmbqr5u00" path="res://ScienceTilemap.tscn" id="2_umcl5"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LevelIngredients" parent="." instance=ExtResource("1_fbscg")]
+position = Vector2(-2, -1)
+scale = Vector2(1.00155, 1.17016)
+layer_0/tile_data = PackedInt32Array(65537, 0, 131072, 65538, 0, 131072, 65539, 0, 131072, 65540, 0, 131072, 65544, 0, 65536, 262151, 0, 131072, 262152, 0, 131072, 262153, 0, 131072, 262154, 0, 131072, 262155, 0, 131072, 262156, 0, 131072, 262157, 0, 131072, 262158, 0, 131072)
+
+[node name="WindAreaRight" parent="." instance=ExtResource("2_1txa8")]
+editor_description = "qua bisogna aggiungere collsion shapes 
+"
+scale = Vector2(1.00155, 1.17016)
+
+[node name="WindAreaLeft" parent="." instance=ExtResource("2_1txa8")]
+editor_description = "qua bisogna aggiungere collsion shapes "
+scale = Vector2(1.00155, 1.17016)
+
+[node name="ScianceLab" parent="." instance=ExtResource("2_umcl5")]
+layer_0/tile_data = PackedInt32Array(131073, 327681, 0, 131074, 393217, 0, 131075, 393217, 0, 131076, 393217, 0, 131077, 393217, 0, 131078, 393217, 0, 131079, 393217, 0, 131080, 393217, 0, 131081, 393217, 0, 131082, 458753, 0, 327687, 327681, 0, 327688, 393217, 0, 327689, 393217, 0, 327690, 393217, 0, 327691, 393217, 0, 327692, 393217, 0, 327693, 393217, 0, 327694, 393217, 0, 327695, 393217, 0, 327696, 458753, 0)
+
+[connection signal="body_entered" from="LevelIngredients/Spikes" to="LevelIngredients/Spikes" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27302" to="LevelIngredients/@Area2D@27302" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27303" to="LevelIngredients/@Area2D@27303" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27304" to="LevelIngredients/@Area2D@27304" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/LevelEnd" to="LevelIngredients/LevelEnd" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27305" to="LevelIngredients/@Area2D@27305" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27306" to="LevelIngredients/@Area2D@27306" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27307" to="LevelIngredients/@Area2D@27307" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27308" to="LevelIngredients/@Area2D@27308" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27309" to="LevelIngredients/@Area2D@27309" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27310" to="LevelIngredients/@Area2D@27310" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27311" to="LevelIngredients/@Area2D@27311" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@27312" to="LevelIngredients/@Area2D@27312" method="_on_body_entered"]
