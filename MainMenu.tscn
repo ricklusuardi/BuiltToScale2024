@@ -32,7 +32,7 @@ offset_top = 88.0
 offset_right = 487.0
 offset_bottom = 136.0
 theme_override_fonts/font = ExtResource("3_swxah")
-text = "BUILT TO SCALE"
+text = "Robot Scale"
 label_settings = SubResource("LabelSettings_ibkut")
 horizontal_alignment = 1
 
