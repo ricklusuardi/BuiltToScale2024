@@ -217,8 +217,6 @@ func _handle_jump():
 		velocity.y = jumpVelocity
 		var jumpSprite = jumpSpriteRef.instantiate()
 		$JumpFlamePoint.add_child(jumpSprite)
-		
-
 
 func spring_jump(spring_modifier):
 	velocity.y = jumpVelocity * spring_modifier

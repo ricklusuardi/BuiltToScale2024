@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://cowti6gox7d3p"]
+
+[ext_resource type="Texture2D" uid="uid://dxrdvidr1vtfs" path="res://sprite/science lab/Tiles/tile077.png" id="1_c1drp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqk54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c1drp")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2hi1"]
+size = Vector2(32, 32)
+
+[sub_resource type="Animation" id="Animation_qjc7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0.580392, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_htlb6"]
+resource_name = "breaking_tile"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1.3, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 0, 1), Color(1, 0.580392, 0, 1), Color(1, 0.388235, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0fqoa"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yb8w7"]
+_data = {
+"RESET": SubResource("Animation_qjc7p"),
+"breaking_tile": SubResource("Animation_htlb6"),
+"new_animation": SubResource("Animation_0fqoa")
+}
+
+[node name="StaticBody2D" type="StaticBody2D"]
+position = Vector2(16, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 0.580392, 0, 1)
+self_modulate = Color(1, 0.992157, 0, 1)
+sprite_frames = SubResource("SpriteFrames_sqk54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_d2hi1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_yb8w7")
+}

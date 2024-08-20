@@ -1,7 +1,7 @@
 extends Area2D
 class_name WindArea
 
-@onready var character: Chara = %Character
+@onready var character: Chara 
 
 # Define the enum for wind direction
 enum WindDirection {
@@ -23,11 +23,13 @@ func get_wind_vector() -> Vector2:
 
 # Called when a body enters the wind area
 func _on_body_entered(body):
-	if body == character:
+	if body is Chara:
+		character = body
 		var wind_vector = get_wind_vector()
 		character.in_wind(wind_vector)
 
 # Called when a body exits the wind area
 func _on_body_exited(body):
-	if body == character:
+	if body is Chara:
+		character = body
 		character.not_in_wind()

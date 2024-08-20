@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bawshwc6vy2s6"]
+[gd_scene load_steps=27 format=3 uid="uid://bawshwc6vy2s6"]
 
 [ext_resource type="Script" path="res://Chara.gd" id="1_rmnxf"]
 [ext_resource type="Texture2D" uid="uid://d4c2q8lhid7ln" path="res://sprite/Robot.png" id="2_dyb26"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://cu7rupkuwbk6k" path="res://sounds/SizeChangeDown.wav" id="15_j6un0"]
 [ext_resource type="PackedScene" uid="uid://ddv7eoyf8pegk" path="res://GameCamera.tscn" id="17_g7bcs"]
 [ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="18_audyf"]
+[ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="19_weww4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0l3m1"]
 size = Vector2(13, 26)
@@ -184,3 +185,5 @@ position = Vector2(14, -39)
 scale = Vector2(3, 3)
 texture = ExtResource("18_audyf")
 metadata/_edit_lock_ = true
+
+[node name="WindArea" parent="SpaceBackground" instance=ExtResource("19_weww4")]

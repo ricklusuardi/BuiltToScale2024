@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh4bgy1uglnn"]
+
+[ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="1_6bf3r"]
+[ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="2_x25hd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6lwd"]
+size = Vector2(58, 66)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_slejd"]
+normal = Vector2(0, -18.8)
+distance = 4.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WindArea" parent="." instance=ExtResource("1_6bf3r")]
+scale = Vector2(2, 2)
+wind_direction = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea"]
+position = Vector2(132, -36)
+shape = SubResource("RectangleShape2D_h6lwd")
+
+[node name="Node2D" parent="." instance=ExtResource("2_x25hd")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-20, 80)
+shape = SubResource("WorldBoundaryShape2D_slejd")
