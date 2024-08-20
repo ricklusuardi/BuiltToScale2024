@@ -1,0 +1,111 @@
+[gd_scene load_steps=4 format=3 uid="uid://jkrjw8725bjg"]
+
+[ext_resource type="Texture2D" uid="uid://bqgbx7ekke07d" path="res://sprite/SpaceBackground.png" id="1_myt8q"]
+[ext_resource type="Script" path="res://credits_menu.gd" id="1_yes4i"]
+[ext_resource type="FontFile" uid="uid://bsxcw5op6n14l" path="res://fonts/joystix monospace.otf" id="2_cmiun"]
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yes4i")
+metadata/_edit_lock_ = true
+
+[node name="SpaceBackground" type="Sprite2D" parent="."]
+position = Vector2(576, 336)
+scale = Vector2(2.08667, 1.82)
+texture = ExtResource("1_myt8q")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 336.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 40
+text = "CREDITS"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 112.0
+offset_right = 344.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 20
+text = "Game designers"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 144.0
+offset_right = 336.0
+offset_bottom = 183.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 15
+text = "Riccardo Lusuardi
+Sebastiano Zezza"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 200.0
+offset_right = 344.0
+offset_bottom = 224.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 20
+text = "Assets used*
+"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 232.0
+offset_right = 976.0
+offset_bottom = 620.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 11
+text = "robot tileset (0x72_16x16RobotTileset.v1.png): https://0x72.itch.io/16x16-robot-tileset
+
+metal steps (397285__revolverssmoke__step-in-metall-1.wav): https://freesound.org/people/revolverssmoke/sounds/397285/
+
+metal steps (final) (696374__sanderboah__walking-on-metal.wav): https://freesound.org/people/Sanderboah/sounds/696374/
+
+bouncing sound (478338__joao_janz__bouncing-power-up-1_1.wav): https://freesound.org/people/Joao_Janz/sounds/478338/
+
+size increase sound (588251__romeo_kaleikau__power-up-regeneration-sfx.aup3-shm):https://freesound.org/people/Romeo_Kaleikau/sounds/588251/
+
+particle effects: https://ragnapixel.itch.io/particle-fx
+
+font (joystix monospace): https://www.1001fonts.com/joystix-font.html
+ 
+space runner assets: https://mattwalkden.itch.io/free-space-runner-pack
+
+sci fi lab tileset: https://foozlecc.itch.io/sci-fi-lab-tileset-decor-traps
+
+firethrower sounds: https://freesound.org/people/Nic3_one/sounds/166543/
+"
+autowrap_mode = 1
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 816.0
+offset_top = 64.0
+offset_right = 1120.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 11
+text = "*some of the assets used, especially the sounds, were modified before being implemented in game."
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 904.0
+offset_top = 560.0
+offset_right = 1132.0
+offset_bottom = 616.0
+theme_override_fonts/font = ExtResource("2_cmiun")
+theme_override_font_sizes/font_size = 20
+text = "Back To Menu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

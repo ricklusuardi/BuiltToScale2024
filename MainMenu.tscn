@@ -41,16 +41,17 @@ texture_filter = 1
 offset_left = 32.0
 offset_top = 200.0
 offset_right = 168.0
-offset_bottom = 248.0
+offset_bottom = 272.0
 focus_mode = 0
 theme_override_colors/font_color = Color(0.93845, 0.93845, 0.93845, 1)
 theme_override_fonts/font = ExtResource("3_swxah")
 theme_override_font_sizes/font_size = 10
 theme_override_styles/panel = SubResource("StyleBoxFlat_4y6jg")
-item_count = 3
+item_count = 4
 item_0/text = "Play"
 item_1/text = "Select Level"
-item_2/text = "Quit Game"
+item_2/text = "Credits"
+item_3/text = "Quit Game"
 
 [node name="LevelSelect" type="ItemList" parent="."]
 visible = false

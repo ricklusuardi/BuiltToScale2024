@@ -21,7 +21,9 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	elif (index == 1):
 		$LevelSelect.visible = true
 	elif (index ==2):
-		get_tree().quit() 
+		get_tree().change_scene_to_file("res://credits_menu.tscn")
+	elif (index ==2):
+		get_tree().quit()
 		
 
 
