@@ -182,10 +182,18 @@ func apply_wind_effect(delta: float):
 	if direction != 0:
 		if (direction > 0 and wind_direction == Vector2.LEFT) or (direction < 0 and wind_direction == Vector2.RIGHT):
 			# Slow down against the wind
-			SPEED = max(SPEED - (in_wind_speed/currentMass), 50)
+			#SPEED = max(SPEED - (in_wind_speed/currentMass), 50)
+			if (currentScaleStep > 0):
+				SPEED = 180
+			else:
+				SPEED = 0
 		elif (direction < 0 and wind_direction == Vector2.LEFT) or (direction > 0 and wind_direction == Vector2.RIGHT):
 			# Speed up with the wind
-			SPEED = min(SPEED + (in_wind_speed/currentMass), 400)
+			#SPEED = min(SPEED + (in_wind_speed/currentMass), 400)
+			if (currentScaleStep > 0):
+				SPEED = 200
+			else:
+				SPEED = in_wind_speed 
 	else:
 		# If standing still, the wind effect is handled in _physics_process
 		pass

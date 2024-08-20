@@ -32,8 +32,6 @@ func _on_level_select_item_clicked(index, at_position, mouse_button_index):
 		get_tree().change_scene_to_file("res://Level_01.tscn")
 	elif (index == 1):
 		get_tree().change_scene_to_file("res://level_02.tscn")
-	elif (index ==2):
-		pass
 
 
 

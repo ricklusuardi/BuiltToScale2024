@@ -137,6 +137,7 @@ stream_10/weight = 1.0
 [node name="Node2D" type="CharacterBody2D" groups=["MainCharacterGroup"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_rmnxf")
+in_wind_speed = 800
 maxHealth = 3
 jumpChange = 1.7
 scaleChange = Vector2(2, 2)
