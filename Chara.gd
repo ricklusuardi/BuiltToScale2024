@@ -55,7 +55,7 @@ func _ready():
 	randomize()
 
 func _physics_process(delta):
-	print(currentMass)
+	#print(currentMass)
 	
 	if is_in_wind:
 		apply_wind_effect(delta)

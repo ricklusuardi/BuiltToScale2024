@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://copix8mgh0ad6"]
+[gd_scene load_steps=10 format=3 uid="uid://copix8mgh0ad6"]
 
 [ext_resource type="Script" path="res://blocchi_instabili.gd" id="1_5jmt0"]
 [ext_resource type="Texture2D" uid="uid://dxrdvidr1vtfs" path="res://sprite/science lab/Tiles/tile077.png" id="2_dn458"]
-[ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="3_vjvob"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0hq6"]
 size = Vector2(32, 34)
@@ -79,9 +78,6 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_yb8w7")
 }
-
-[node name="Node2D" parent="." instance=ExtResource("3_vjvob")]
-position = Vector2(16, -40)
 
 [connection signal="body_entered" from="BlocchiInstabili" to="." method="_on_blocchi_instabili_body_entered"]
 [connection signal="body_exited" from="BlocchiInstabili" to="." method="_on_blocchi_instabili_body_exited"]

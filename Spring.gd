@@ -11,14 +11,14 @@ var platform_was_pressed_dowm = false
 #@onready var pressed_down =
 
 func _process(delta: float) -> void:
-	print(platform_was_pressed_dowm)
+	#print(platform_was_pressed_dowm)
 	if object != null:
-		if object.currentMass == 4.0:
+		if object.currentMass == 1.3:
 			print("sei grasso perso")
 			# Compress the platform
 			global_position.y = move_toward(global_position.y,end_position, delta * spring_compression_rate)
 			platform_was_pressed_dowm =true
-		elif object.currentMass == 0.25:
+		elif object.currentMass < 1:
 			# Decompress the platform and launch the character
 			global_position.y= move_toward(global_position.y,starting_position, delta * spring_decompression_rate)
 			if global_position == node_starting_position and platform_was_pressed_dowm == true:
