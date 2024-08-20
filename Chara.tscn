@@ -134,6 +134,7 @@ stream_10/stream = ExtResource("5_ydkpy")
 stream_10/weight = 1.0
 
 [node name="Node2D" type="CharacterBody2D" groups=["MainCharacterGroup"]]
+scale = Vector2(2, 2)
 script = ExtResource("1_rmnxf")
 maxHealth = 3
 scaleChange = Vector2(2, 2)
@@ -170,7 +171,8 @@ bus = &"SizeChange"
 
 [node name="Camera2D" parent="." instance=ExtResource("17_g7bcs")]
 process_mode = 1
-position = Vector2(0, -56)
+position = Vector2(0, -27)
+zoom = Vector2(2, 2)
 
 [node name="JumpFlamePoint" type="Node2D" parent="."]
 position = Vector2(-5, -11)
@@ -178,5 +180,6 @@ position = Vector2(-5, -11)
 [node name="SpaceBackground" type="Sprite2D" parent="."]
 z_index = -3
 position = Vector2(14, -39)
+scale = Vector2(3, 3)
 texture = ExtResource("18_audyf")
 metadata/_edit_lock_ = true

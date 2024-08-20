@@ -21,8 +21,8 @@ var jumpSpriteRef = preload("res://JumpFlame.tscn")
 # SCALE
 @export var scaleChange: Vector2  # how much the size of the character increases/decreases
 @export var currentScaleStep: int = 0  # keeps track of how many times the character has been scaled up or down
-@export var maxScaleUp: int = 2  # max amount of times it can be scaled up
-@export var minScaleDown: int = -2  # max amount of times it can be scaled down
+@export var maxScaleUp: int = 1  # max amount of times it can be scaled up
+@export var minScaleDown: int = -1  # max amount of times it can be scaled down
 
 signal scale_changed
 
@@ -43,8 +43,9 @@ var effectSizeMultiplier = 2 #how much the part changes in size when the char ch
 @export var particleType : PackedScene 
 
 #CAMERA
-var camOffsetLvl1 = 30 #keeps the camera centered when changing size
+var camOffsetLvl1 = 18 #keeps the camera centered when changing size
 var camOffsetLvl2 = 13 #keeps the camera centered when changing size
+var camZoomChange = Vector2(0.3, 0.3)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -134,6 +135,8 @@ func _increase_size():
 		
 		jumpVelocity *= jumpChange
 		
+		$Camera2D.zoom -= camZoomChange
+		
 		emit_signal("scale_changed")
 		
 
@@ -164,6 +167,8 @@ func _decrease_size():
 		
 		#change jump
 		jumpVelocity /= jumpChange
+		
+		$Camera2D.zoom += camZoomChange
 		
 		emit_signal("scale_changed")
 		
