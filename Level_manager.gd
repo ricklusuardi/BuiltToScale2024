@@ -8,7 +8,7 @@ func next_level():
 	if levels.size() == 0:
 		return
 	
-	current_level_index = wrap(current_level_index + 1, 0, levels.size() - 1)
+	current_level_index += 1
 	get_tree().change_scene_to_packed(levels[current_level_index])
 	
 
