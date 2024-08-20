@@ -9,3 +9,4 @@ particle effects: https://ragnapixel.itch.io/particle-fx
 font (joystix monospace): https://www.1001fonts.com/joystix-font.html 
 space runner assets: https://mattwalkden.itch.io/free-space-runner-pack
 sci fi lab tileset: https://foozlecc.itch.io/sci-fi-lab-tileset-decor-traps
+firethrower sounds: https://freesound.org/people/Nic3_one/sounds/166543/

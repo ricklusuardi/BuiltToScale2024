@@ -12,6 +12,12 @@ var respawn_point: Vector2
 @export var maxHealth : int
 var currentHealth = maxHealth
 
+#JUMP
+@export var jumpVelocity = -400
+@export var jumpChange = 1.3
+var jumpSpriteRef = preload("res://JumpFlame.tscn")
+
+
 # SCALE
 @export var scaleChange: Vector2  # how much the size of the character increases/decreases
 @export var currentScaleStep: int = 0  # keeps track of how many times the character has been scaled up or down
@@ -48,6 +54,8 @@ func _ready():
 	randomize()
 
 func _physics_process(delta):
+	
+	
 	if is_in_wind:
 		apply_wind_effect(delta)
 	else:
@@ -57,6 +65,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	# Handle jump.
+	_handle_jump()
 
 	# MOVEMENT
 	# Get the input direction and handle the movement/deceleration.
@@ -67,10 +77,16 @@ func _physics_process(delta):
 		if is_on_floor():
 			$AnimationPlayer.play("RobotRun")
 			$AnimationPlayer.speed_scale = animRunMultiplier * currentAnimScale
+		elif !is_on_floor():
+			$AnimationPlayer.play("RobotIdle")
 		if velocity.x > 0:
 			$Sprite2D.flip_h = false
+			$JumpFlamePoint.position.x = -5
+			
 		elif velocity.x < 0:
 			$Sprite2D.flip_h = true
+			$JumpFlamePoint.position.x = 5
+			
 	else:
 		# If standing still, let the wind move the character
 		if is_in_wind:
@@ -116,6 +132,8 @@ func _increase_size():
 		elif (currentScaleStep == 2):
 			$Camera2D.position.y += camOffsetLvl2
 		
+		jumpVelocity *= jumpChange
+		
 		emit_signal("scale_changed")
 		
 
@@ -143,6 +161,9 @@ func _decrease_size():
 		#play animation
 		var effect = particleType.instantiate()
 		$Sprite2D.add_child(effect)
+		
+		#change jump
+		jumpVelocity /= jumpChange
 		
 		emit_signal("scale_changed")
 		
@@ -185,3 +206,12 @@ func _get_damaged(damage : int):
 		
 func set_respawn_point(point : Vector2):
 	respawn_point = point
+
+func _handle_jump():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = jumpVelocity
+		var jumpSprite = jumpSpriteRef.instantiate()
+		$JumpFlamePoint.add_child(jumpSprite)
+		
+		
+	
