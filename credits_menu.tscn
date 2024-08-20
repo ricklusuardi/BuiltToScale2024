@@ -31,6 +31,7 @@ theme_override_font_sizes/font_size = 40
 text = "CREDITS"
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 112.0
 offset_right = 344.0
@@ -40,6 +41,7 @@ theme_override_font_sizes/font_size = 20
 text = "Game designers"
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 144.0
 offset_right = 336.0
@@ -50,6 +52,7 @@ text = "Riccardo Lusuardi
 Sebastiano Zezza"
 
 [node name="Label4" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 200.0
 offset_right = 344.0
@@ -60,6 +63,7 @@ text = "Assets used*
 "
 
 [node name="Label5" type="Label" parent="."]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 232.0
 offset_right = 976.0
@@ -89,6 +93,7 @@ firethrower sounds: https://freesound.org/people/Nic3_one/sounds/166543/
 autowrap_mode = 1
 
 [node name="Label6" type="Label" parent="."]
+layout_mode = 0
 offset_left = 816.0
 offset_top = 64.0
 offset_right = 1120.0
