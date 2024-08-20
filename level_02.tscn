@@ -76,6 +76,16 @@ text = "if you are small
 you can use it to speed up"
 autowrap_mode = 2
 
+[node name="Label5" type="Label" parent="Text"]
+offset_left = 848.0
+offset_top = 536.0
+offset_right = 1128.0
+offset_bottom = 602.0
+theme_override_fonts/font = ExtResource("5_gspwa")
+text = "if you can't fit
+you can always get smaller ;)"
+autowrap_mode = 2
+
 [node name="CheckPoint" parent="." instance=ExtResource("6_a8bs0")]
 position = Vector2(416, 312)
 scale = Vector2(1, 1.6)
@@ -169,27 +179,27 @@ scale = Vector2(0.484375, 0.484375)
 flip_h = true
 
 [connection signal="body_entered" from="LevelIngredients/Spikes" to="LevelIngredients/Spikes" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144444" to="LevelIngredients/@Area2D@144444" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144445" to="LevelIngredients/@Area2D@144445" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144446" to="LevelIngredients/@Area2D@144446" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144457" to="LevelIngredients/@Area2D@144457" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144458" to="LevelIngredients/@Area2D@144458" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144459" to="LevelIngredients/@Area2D@144459" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144460" to="LevelIngredients/@Area2D@144460" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144461" to="LevelIngredients/@Area2D@144461" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144462" to="LevelIngredients/@Area2D@144462" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144463" to="LevelIngredients/@Area2D@144463" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144464" to="LevelIngredients/@Area2D@144464" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144465" to="LevelIngredients/@Area2D@144465" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144466" to="LevelIngredients/@Area2D@144466" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144467" to="LevelIngredients/@Area2D@144467" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144468" to="LevelIngredients/@Area2D@144468" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144469" to="LevelIngredients/@Area2D@144469" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144470" to="LevelIngredients/@Area2D@144470" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144471" to="LevelIngredients/@Area2D@144471" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144472" to="LevelIngredients/@Area2D@144472" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144473" to="LevelIngredients/@Area2D@144473" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144474" to="LevelIngredients/@Area2D@144474" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144475" to="LevelIngredients/@Area2D@144475" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144476" to="LevelIngredients/@Area2D@144476" method="_on_body_entered"]
-[connection signal="body_entered" from="LevelIngredients/@Area2D@144477" to="LevelIngredients/@Area2D@144477" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20116" to="LevelIngredients/@Area2D@20116" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20117" to="LevelIngredients/@Area2D@20117" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20118" to="LevelIngredients/@Area2D@20118" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20129" to="LevelIngredients/@Area2D@20129" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20130" to="LevelIngredients/@Area2D@20130" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20131" to="LevelIngredients/@Area2D@20131" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20132" to="LevelIngredients/@Area2D@20132" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20133" to="LevelIngredients/@Area2D@20133" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20134" to="LevelIngredients/@Area2D@20134" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20135" to="LevelIngredients/@Area2D@20135" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20136" to="LevelIngredients/@Area2D@20136" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20137" to="LevelIngredients/@Area2D@20137" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20138" to="LevelIngredients/@Area2D@20138" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20139" to="LevelIngredients/@Area2D@20139" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20140" to="LevelIngredients/@Area2D@20140" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20141" to="LevelIngredients/@Area2D@20141" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20142" to="LevelIngredients/@Area2D@20142" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20143" to="LevelIngredients/@Area2D@20143" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20144" to="LevelIngredients/@Area2D@20144" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20145" to="LevelIngredients/@Area2D@20145" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20146" to="LevelIngredients/@Area2D@20146" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20147" to="LevelIngredients/@Area2D@20147" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20148" to="LevelIngredients/@Area2D@20148" method="_on_body_entered"]
+[connection signal="body_entered" from="LevelIngredients/@Area2D@20149" to="LevelIngredients/@Area2D@20149" method="_on_body_entered"]
