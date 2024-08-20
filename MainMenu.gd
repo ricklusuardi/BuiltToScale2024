@@ -17,7 +17,7 @@ func _process(delta):
 
 func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 	if (index == 0):
-		get_tree().change_scene_to_file("res://world.tscn")
+		get_tree().change_scene_to_file("res://Level_01.tscn")
 	elif (index == 1):
 		$LevelSelect.visible = true
 	elif (index ==2):
@@ -29,7 +29,7 @@ func _on_item_list_item_clicked(index, at_position, mouse_button_index):
 
 func _on_level_select_item_clicked(index, at_position, mouse_button_index):
 	if (index == 0):
-		get_tree().change_scene_to_file("res://world.tscn")
+		get_tree().change_scene_to_file("res://Level_01.tscn")
 	elif (index == 1):
 		pass
 	elif (index ==2):
