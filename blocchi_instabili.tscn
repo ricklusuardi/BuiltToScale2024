@@ -21,9 +21,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2hi1"]
 size = Vector2(32, 32)
 
-[sub_resource type="Animation" id="Animation_0fqoa"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_qjc7p"]
 length = 0.001
 tracks/0/type = "value"
@@ -54,6 +51,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [Color(1, 1, 0, 1), Color(1, 0.580392, 0, 1), Color(1, 0.388235, 0, 1), Color(1, 0, 0, 1)]
 }
+
+[sub_resource type="Animation" id="Animation_0fqoa"]
+resource_name = "new_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yb8w7"]
 _data = {

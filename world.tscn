@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://lmvercdho44y"]
+[gd_scene load_steps=13 format=3 uid="uid://lmvercdho44y"]
 
 [ext_resource type="Script" path="res://Level.gd" id="1_2r1fr"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="1_gcqke"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cu2kwhktfodkh" path="res://check_point.tscn" id="3_ei0d6"]
 [ext_resource type="PackedScene" uid="uid://dq0htwu4mlmi3" path="res://wind_area.tscn" id="3_pfv88"]
 [ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="6_fvkil"]
+[ext_resource type="PackedScene" uid="uid://bkxd41of0cku8" path="res://spring.tscn" id="7_l7obx"]
 [ext_resource type="PackedScene" uid="uid://ibm86xb3p6nq" path="res://Level_End.tscn" id="8_vcxw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4o578"]
@@ -53,11 +54,16 @@ position = Vector2(304, 200)
 texture = ExtResource("2_7ebu2")
 metadata/_edit_lock_ = true
 
+[node name="Spring" parent="." instance=ExtResource("7_l7obx")]
+position = Vector2(573, 237)
+spring_compression_rate = 100.0
+spring_decompression_rate = 100.0
+
 [node name="WindArea" parent="." instance=ExtResource("3_pfv88")]
 position = Vector2(383, 190)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea"]
-position = Vector2(230, -65)
+position = Vector2(261, -241)
 shape = SubResource("RectangleShape2D_l8hmt")
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
@@ -94,4 +100,5 @@ texture = ExtResource("6_fvkil")
 position = Vector2(-333, 122)
 
 [editable path="Spikes"]
+[editable path="Spring"]
 [editable path="LevelEnd"]

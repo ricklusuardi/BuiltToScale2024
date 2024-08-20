@@ -55,7 +55,7 @@ func _ready():
 	randomize()
 
 func _physics_process(delta):
-	
+	print(currentMass)
 	
 	if is_in_wind:
 		apply_wind_effect(delta)
@@ -218,5 +218,7 @@ func _handle_jump():
 		var jumpSprite = jumpSpriteRef.instantiate()
 		$JumpFlamePoint.add_child(jumpSprite)
 		
-		
-	
+
+
+func spring_jump(spring_modifier):
+	velocity.y = jumpVelocity * spring_modifier

@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkxd41of0cku8"]
+
+[ext_resource type="Script" path="res://Spring.gd" id="1_pcw85"]
+[ext_resource type="Texture2D" uid="uid://cmm17fcxievun" path="res://sprite/science lab/LongerPlatform.png" id="2_8ndh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhmdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0lef7"]
+size = Vector2(74, 64)
+
+[node name="Spring" type="Node2D"]
+script = ExtResource("1_pcw85")
+
+[node name="Platform" type="RigidBody2D" parent="."]
+unique_name_in_owner = true
+rotation = -1.5708
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+visible = false
+position = Vector2(-8, -2.89599e-05)
+rotation = 1.5708
+scale = Vector2(4.8, 0.8)
+shape = SubResource("RectangleShape2D_xhmdg")
+
+[node name="LongerPlatform" type="Sprite2D" parent="Platform"]
+position = Vector2(-16, -5.79198e-05)
+rotation = 1.5708
+texture = ExtResource("2_8ndh1")
+
+[node name="Area2D" type="Area2D" parent="Platform"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform/Area2D"]
+position = Vector2(27, 9.53674e-07)
+shape = SubResource("RectangleShape2D_0lef7")
+
+[node name="EndPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 128)
+
+[connection signal="body_entered" from="Platform/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Platform/Area2D" to="." method="_on_area_2d_body_exited"]
