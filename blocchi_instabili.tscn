@@ -1,25 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://copix8mgh0ad6"]
+[gd_scene load_steps=11 format=3 uid="uid://copix8mgh0ad6"]
 
 [ext_resource type="Script" path="res://blocchi_instabili.gd" id="1_5jmt0"]
 [ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="2_wlywa"]
-[ext_resource type="Shader" path="res://blocchi_instabili.gdshader" id="3_6tga5"]
-[ext_resource type="Texture2D" uid="uid://d1pueafcnitfu" path="res://greyscaleTexture.png" id="4_tyjlx"]
-[ext_resource type="Texture2D" uid="uid://cph162th5vbs1" path="res://icon.svg" id="5_b04cn"]
+[ext_resource type="Texture2D" uid="uid://dxrdvidr1vtfs" path="res://sprite/science lab/Tiles/tile077.png" id="3_hor0t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0hq6"]
 size = Vector2(32, 34)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_avyfs"]
-shader = ExtResource("3_6tga5")
-shader_parameter/dissolveNoise = ExtResource("4_tyjlx")
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sqk54"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_b04cn")
+"texture": ExtResource("3_hor0t")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
@@ -27,11 +21,52 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2hi1"]
 size = Vector2(32, 32)
 
+[sub_resource type="Animation" id="Animation_0fqoa"]
+resource_name = "new_animation"
+
+[sub_resource type="Animation" id="Animation_qjc7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 0.580392, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_htlb6"]
+resource_name = "breaking_tile"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.5, 1.3, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 0, 1), Color(1, 0.580392, 0, 1), Color(1, 0.388235, 0, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yb8w7"]
+_data = {
+"RESET": SubResource("Animation_qjc7p"),
+"breaking_tile": SubResource("Animation_htlb6"),
+"new_animation": SubResource("Animation_0fqoa")
+}
+
 [node name="Node2D" type="Node2D"]
+position = Vector2(-16, -16)
 script = ExtResource("1_5jmt0")
 
 [node name="Node2D" parent="." instance=ExtResource("2_wlywa")]
-position = Vector2(16, -56)
 
 [node name="BlocchiInstabili" type="Area2D" parent="."]
 
@@ -41,17 +76,22 @@ shape = SubResource("RectangleShape2D_f0hq6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(16, 16)
-scale = Vector2(1, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D"]
-material = SubResource("ShaderMaterial_avyfs")
-scale = Vector2(0.25, 0.25)
+modulate = Color(1, 0.580392, 0, 1)
+self_modulate = Color(1, 0.992157, 0, 1)
 sprite_frames = SubResource("SpriteFrames_sqk54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_d2hi1")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_yb8w7")
+}
 
 [connection signal="body_entered" from="BlocchiInstabili" to="." method="_on_blocchi_instabili_body_entered"]
 [connection signal="body_exited" from="BlocchiInstabili" to="." method="_on_blocchi_instabili_body_exited"]
+[connection signal="animation_finished" from="StaticBody2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
