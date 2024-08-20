@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://wxyojqm3w5ld"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_5vsmy"]
+[ext_resource type="PackedScene" uid="uid://bawshwc6vy2s6" path="res://Chara.tscn" id="2_duu01"]
+[ext_resource type="PackedScene" uid="uid://bj4eqmbqr5u00" path="res://ScienceTilemap.tscn" id="3_upcmt"]
+[ext_resource type="PackedScene" uid="uid://blg5406nu6s02" path="res://level_ingredients.tscn" id="4_w03l3"]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource("1_5vsmy")
+
+[node name="Node2D" parent="." instance=ExtResource("2_duu01")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=["CanvasLayerGroup"]]
+
+[node name="ScianceLab" parent="." instance=ExtResource("3_upcmt")]
+scale = Vector2(1, 1)
+layer_0/tile_data = PackedInt32Array(65532, 327681, 0, 65533, 393217, 0, 65534, 393217, 0, 65535, 393217, 0, 0, 393217, 0, 1, 393217, 0, 2, 393217, 0, 5, 458753, 0, 4, 393217, 0, 3, 393217, 0)
+
+[node name="LevelIngredients" parent="." instance=ExtResource("4_w03l3")]
+position = Vector2(0, 0)

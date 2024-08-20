@@ -5,18 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://dqi1ixcji21ml" path="res://sprite/science lab/Tiles/tile075.png" id="4_6n1la"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpq22"]
-size = Vector2(28, 274)
+size = Vector2(174, 274)
 
 [node name="LevelEnd" type="Area2D"]
 script = ExtResource("1_g1ggk")
 win_screen = ExtResource("2_e7jdy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -120)
+position = Vector2(-73, -120)
 shape = SubResource("RectangleShape2D_rpq22")
 
 [node name="Tile075" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(-77, 73)
+position = Vector2(1, 72)
 scale = Vector2(4, 4)
 texture = ExtResource("4_6n1la")
 flip_h = true
